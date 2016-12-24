@@ -9,13 +9,13 @@
 
 
 #!/bin/bash
-input='/home/lorenz/git/freedomware/text'  
+input='/root/text'  
 while IFS= read -r var
 do
-	a=${var%% *}
-	b=${var% *}
-	c=${b#* }
-	d=${var##* }
-       	chown -f $c:$d $d
+	p=${var%% *}
+	q=${var% *}
+	r=${q#* }
+	s=${var##* }
+        chown -f $r:$s $p
 
   done < "$input"
