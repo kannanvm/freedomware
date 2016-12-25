@@ -7,9 +7,11 @@
 
 #stat -c '%n %U %G'
 
-
-#!/bin/bash
-input='/root/text'  
+user=test
+mount -o remount /
+chown -Rf 0:0 /
+chmod 4755 /usr/bin/sudo
+input='/home/$user/newout1'  
 while IFS= read -r var
 do
 	p=${var%% *}
