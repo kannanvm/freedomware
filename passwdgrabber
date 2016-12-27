@@ -1,0 +1,23 @@
+#!/bin/bash
+
+input='/etc/passwd'
+while IFS= read -r ID
+do
+u1=${ID#*:}
+u2=${u1#*:}
+u3=${u2%:*}
+u4=${u3%:*}
+u5=${u4%:*}
+U=${u5%:*} 
+G=${u5#*:}
+echo $U >> u 
+echo $G >> u
+done < "$input"
+awk '!a[$0]++' u > user
+rm u
+#awk '!a[$0]++' g > group
+#rm g
+#input2='~/git/freedomware/user'
+#while IFS= read -r finder
+#do
+

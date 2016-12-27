@@ -1,0 +1,2 @@
+lorenz:x:1000:1000::/home/lorenz:/usr/bin/zsh
+packagemaker:x:1001:1002::/home/package:/usr/bin/zsh

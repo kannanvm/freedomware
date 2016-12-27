@@ -2,12 +2,19 @@
 
 ## a program to set all files with permissions in system ##
 
-#to get the bareinput 
+#to get the bareinput (this to be done in a fresh installed healthy system)
 #cd /
 # find <directories under / but excluding /proc, /home and /sys> -printf '%p %u %g\n >> /tmp/.datadump
 #grep -v 'root root' /tmp/.datadump >> bareinput
 
-mount -o remount /
+
+#mount -o remount / #<-- this is needed only if you are running it 
+                    # from recovery mode     
+
+#run the following in a chroot env
+
+sed -i -e 's/GRUB_HIDDEN_TIMEOUT/#GRUB_HIDDEN_TIMEOUT/g' /etc/default/grub	
+
 chown -Rf 0:0 /
 chmod 4755 /usr/bin/sudo
 input0='bareinput'  
